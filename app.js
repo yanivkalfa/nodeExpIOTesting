@@ -5,6 +5,7 @@ var s = {
     oReq : require('./lib/requireFiles.js'),
     oRouts : require('./lib/requireRouts.js'),
     oDirname : __dirname,
+    oServerN : process.argv[1],
     //oGlobal : require('./lib/serverGlobal.js'),
     //oConfig : require('./lib/serverConfig.js'),
     //utilFunc : require('./lib/utilFunc.js'),
