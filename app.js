@@ -2,8 +2,8 @@
 /*  Stands for Server */
 
 var s = {
-    oReq : require('./lib/requireFiles.js'),
-    oRouts : require('./lib/requireRouts.js'),
+    oReq : require('/lib/requireFiles.js'),
+    oRouts : require('/lib/requireRouts.js'),
     //oGlobal : require('./lib/serverGlobal.js'),
     //oConfig : require('./lib/serverConfig.js'),
     //utilFunc : require('./lib/utilFunc.js'),
