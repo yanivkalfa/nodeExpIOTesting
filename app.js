@@ -4,6 +4,8 @@
 var s = {
     oReq : require('./lib/requireFiles.js'),
     oRouts : require('./lib/requireRouts.js'),
+    oConfig : require('./config'),
+    oCore : require('./core'),
     oDirname : __dirname,
     oServerN : process.argv[2],
     //oGlobal : require('./lib/serverGlobal.js'),
@@ -16,6 +18,9 @@ var s = {
             s.oReq.app = s.oReq.express();
             s.oReq.http = s.oReq.http.Server(s.oReq.app);
             s.oReq.io = s.oReq.io(s.oReq.http);
+
+
+
             s.oRouts(s);
 
 

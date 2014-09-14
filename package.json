@@ -1,20 +1,21 @@
 {
-    "name": "nodeExpIOTesting",
-    "version": "0.0.1",
-    "description": "Node express IO scalling",
-    "dependencies": {
-        "express": "~4.8.8",
-        "jade": "~1.6.0",
-        "body-parser": "~1.8.1",
-        "primus": "~2.4.5",
-        "socket.io": "~1.1.0"
-    },
-    "repository": {
-        "type" : "git",
-        "url" : "https://github.com/yanivkalfa/nodeExpIOTesting.git"
-    },
-    "author": {
-        "name" : "Yaniv Kalfa",
-        "email" : "netameta1@yahoo.com"
-    }
+  "name": "nodeExpIOTesting",
+  "version": "0.0.1",
+  "description": "Node express IO scalling",
+  "dependencies": {
+    "mongoose" : "~3.8.16",
+    "express": "~4.8.8",
+    "jade": "~1.6.0",
+    "body-parser": "~1.8.1",
+    "primus": "~2.4.5",
+    "socket.io": "~1.1.0"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/yanivkalfa/nodeExpIOTesting.git"
+  },
+  "author": {
+    "name" : "Yaniv Kalfa",
+    "email" : "netameta1@yahoo.com"
+  }
 }
