@@ -13,6 +13,9 @@ var s = {
     //utilFunc : require('./lib/utilFunc.js'),
     oFns : {
         init : function(){
+
+            console.log(s.oConfig);
+            console.log(s.oCore);
             //s.utilFunc.s = s;
 
             s.oReq.app = s.oReq.express();
