@@ -40,6 +40,7 @@ var s = {
 var oReq = require('./lib/requireFiles.js');
 
 var oRouts = require('./lib/requireRouts.js');
+console.log(oRouts);
 
 
 oReq.app = oReq.express();
