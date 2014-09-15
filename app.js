@@ -1,14 +1,12 @@
 
 
-global._s = {};
-global._s.oReq = require('./lib/requireFiles.js')();
-global._s.oRouts = require('./lib/requireRouts.js')();
-global._s.oConfig = require('./config');
-global._s.oCore = require('./core');
-global._s.oDirname = __dirname;
-global._s.oServerN = process.argv[2];
-
-console.log(global);
+var _s = {};
+_s.oReq = require('./lib/requireFiles.js')();
+_s.oRouts = require('./lib/requireRouts.js')(_s);
+_s.oConfig = require('./config');
+_s.oCore = require('./core');
+_s.oDirname = __dirname;
+_s.oServerN = process.argv[2];
 
 
 
