@@ -1,5 +1,7 @@
 
 /*  Stands for Server */
+global._s = {};
+
 global._s = {
     oReq : require('./lib/requireFiles.js')(),
     oRouts : require('./lib/requireRouts.js')(),
