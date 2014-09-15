@@ -11,6 +11,8 @@ _s.oRouts = require('./lib/requireRouts.js')(_s);
 var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
 var Tank = _s.oReq.mongoose.model('Tank', schema);
 
+console.log(Tank);
+
 Tank.create({ size: 'small' }, function (err, small) {
     if (err){
         console.log(err);
