@@ -11,6 +11,18 @@ _s.oRouts = require('./lib/requireRouts.js')(_s);
 console.log(oCore);
 
 
+
+var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
+var Tank = _s.oReq.mongoose.model('Tank', schema);
+
+Tank.create({ size: 'small' }, function (err, small) {
+    if (err)
+        console.log(err);
+});
+
+//Tank.find({ size: 'small' }).where('createdDate').gt(oneYearAgo).exec(callback);
+
+
 _s.oReq.http.listen(8000, function(){
     console.log('listening on *:8000');
 });
