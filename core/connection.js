@@ -10,14 +10,7 @@ module.exports = function(_s){
                     count = 0;
                 }
 
-                connection = _s.oReq.mongoose.createConnection(url, function(err, succ){
-                    if(err && count < retries){
-                        count++;
-                        console.log(err);
-                        console.log('reconnecting...');
-                        connect(count);
-                    }
-                });
+                connection = _s.oReq.mongoose.createConnection(url).then(function(suc){}).catch(function(err){});
             };
 
             connect();
