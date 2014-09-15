@@ -13,7 +13,11 @@ module.exports = function(_s){
             database    : 'testDB'
             */
 
-            connection = _s.oReq.mongoose.createConnection(url);
+            connection = _s.oReq.mongoose.createConnection(url, function(err,suc){
+
+                console.log(err);
+                console.log(suc);
+            });
             break;
         case'otherAdapter':
 
