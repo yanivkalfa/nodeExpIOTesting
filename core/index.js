@@ -1,3 +1,3 @@
-module.exports = function(s){
-    console.log('asdas');
+module.exports = function(_s){
+    console.log(_s);
 };
