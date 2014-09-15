@@ -4,6 +4,7 @@
   "description": "Node express IO scalling",
   "dependencies": {
     "mongoose" : "~3.8.16",
+    "redis" : "~0.12.1",
     "express": "~4.8.8",
     "jade": "~1.6.0",
     "body-parser": "~1.8.1",

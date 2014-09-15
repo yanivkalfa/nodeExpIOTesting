@@ -27,6 +27,16 @@ module.exports = {
         user        : 'testDB',
         password    : 'abc123',
         database    : 'testDB'
+    },
+
+
+    /*
+     * mongo db
+     * */
+    redis: {
+        adapter     : 'redis',
+        host        : 'ec2-54-86-187-241.compute-1.amazonaws.com',
+        port        : 6379
     }
 
 

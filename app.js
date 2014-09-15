@@ -22,6 +22,7 @@ Tank.find().exec(function(err, res){
     console.log(err, res);
 });
 
+var client = _s.oReq.redis.createClient(_s.oConfig.connections.redis.port,_s.oConfig.connections.redis.host);
 
 /*
 setTimeout(function(){
