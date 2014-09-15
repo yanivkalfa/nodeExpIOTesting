@@ -18,11 +18,24 @@ module.exports = function(_s){
             database    : 'testDB'
             */
 
-            connection = _s.oReq.mongoose.createConnection(url, function(err,suc){
+            var connect = function(count){
+                if(typeof count === 'undefined' || count < 0){
+                    count = 0;
+                }
 
-                console.log(err);
-                console.log(suc);
-            });
+                connection = _s.oReq.mongoose.createConnection(url, function(err,suc){
+                    if(err || count < 5){
+                        count++;
+                        console.log('reconnecting...');
+                        console.log(err);
+                        connect(count);
+                    }
+                });
+            };
+
+
+
+            console.log(connection);
             break;
         case'otherAdapter':
 

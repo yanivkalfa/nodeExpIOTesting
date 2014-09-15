@@ -17,7 +17,7 @@ module.exports = {
     * */
     mongoDB: {
         adapter     : 'mongoose',
-        host        : 'ec2-54-86-187-241.compute-1.amazonaws.com',
+        host        : 'aaec2-54-86-187-241.compute-1.amazonaws.com',
         port        : 27017,
         user        : 'testDB',
         password    : 'abc123',
