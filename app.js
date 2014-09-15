@@ -13,7 +13,7 @@ var Tank = oCore._connection.model('Tank', schema);
 
 Tank.create({ size: 'small' }).then( function (res) {
     console.log(res);
-}).catch(function(err){
+}).catch(function(err) {
     if(err) console.log(err);
 });
 
