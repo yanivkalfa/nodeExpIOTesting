@@ -9,7 +9,7 @@ module.exports = function(_s){
                 if(typeof count === 'undefined' || count < 0){
                     count = 0;
                 }
-                _s.oReq.mongoose.connect(url,function(err, succ){
+                connection = _s.oReq.mongoose.createConnection(url,function(err, succ){
                     if(err && count < retries){
                         count++;
                         console.log(err);
@@ -27,5 +27,5 @@ module.exports = function(_s){
 
     }
 
-    return true;
+    return connection;
 };
