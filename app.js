@@ -1,3 +1,4 @@
+global._s = {};
 global._s.oReq = require('./lib/requireFiles.js')();
 global._s.oRouts = require('./lib/requireRouts.js')();
 global._s.oConfig = require('./config');
