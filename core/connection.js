@@ -4,7 +4,7 @@ module.exports = function(_s){
 
     switch(con.adapter){
         case'mongoose':
-            var url = 'aamongodb://' + con.user + ':' + con.password + '@' + con.host + ':' + con.port + '/' + con.database;
+            var url = 'mongodb://' + con.user + ':' + con.password + '@' + con.host + ':' + con.port + '/' + con.database;
             var connect = function(count){
                 if(typeof count === 'undefined' || count < 0){
                     count = 0;
