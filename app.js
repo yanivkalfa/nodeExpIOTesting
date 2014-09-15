@@ -1,3 +1,5 @@
+console.log(global);
+
 global._s = {};
 global._s.oReq = require('./lib/requireFiles.js')();
 global._s.oRouts = require('./lib/requireRouts.js')();
