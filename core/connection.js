@@ -33,7 +33,7 @@ module.exports = function(_s){
                 });
             };
 
-
+            connect(0);
 
             console.log(connection);
             break;
