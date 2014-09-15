@@ -13,6 +13,11 @@ module.exports = {
     defaultCollection : "nodeExpIOTesting",
 
     /*
+    * number of connection retries.
+    * */
+    retries : 5,
+
+    /*
     * mongo db
     * */
     mongoDB: {
