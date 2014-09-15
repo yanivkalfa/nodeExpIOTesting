@@ -1,9 +1,8 @@
 
 /*  Stands for Server */
-global.yaniv = 'me';
-var s = {
-    oReq : require('./lib/requireFiles.js'),
-    oRouts : require('./lib/requireRouts.js'),
+global._s = {
+    oReq : require('./lib/requireFiles.js')(),
+    oRouts : require('./lib/requireRouts.js')(),
     oConfig : require('./config'),
     oCore : require('./core'),
     oDirname : __dirname,
@@ -13,24 +12,21 @@ var s = {
     //utilFunc : require('./lib/utilFunc.js'),
     oFns : {
         init : function(){
-            console.log(yaniv);
-            console.log(s.oConfig);
-            console.log(s.oCore);
+            //console.log(s.oConfig);
+            //console.log(s.oCore);
             //s.utilFunc.s = s;
 
-            s.oReq.app = s.oReq.express();
-            s.oReq.http = s.oReq.http.Server(s.oReq.app);
-            s.oReq.io = s.oReq.io(s.oReq.http);
 
 
 
-            s.oRouts(s);
+
+            //s.oRouts(s);
 
 
-            s.oReq.http.listen(8000, function(){
+            this.oReq.http.listen(8000, function(){
                 console.log('listening on *:8000');
             });
         }
     }
 };
-s.oFns.init();
+_s.oFns.init();
