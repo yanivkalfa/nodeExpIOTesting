@@ -9,9 +9,9 @@ _s.oServerN = process.argv[2];
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
 var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
-var Tank = _s.oReq.mongoose.model('Tank', schema);
+var Tank = oCore.connection.model('Tank', schema);
 
-oCore.connection.Tank.create({ size: 'small' }, function (err, small) {
+Tank.create({ size: 'small' }, function (err, small) {
     console.log(err, small);
 
     if (err){
@@ -22,7 +22,7 @@ oCore.connection.Tank.create({ size: 'small' }, function (err, small) {
     console.log(small);
 });
 
-oCore.connection.Tank.find().exec(function(err, res){
+Tank.find().exec(function(err, res){
     console.log(err, res);
 });
 
