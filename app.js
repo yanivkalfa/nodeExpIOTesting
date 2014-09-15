@@ -8,7 +8,7 @@ _s.oDirname = __dirname;
 _s.oServerN = process.argv[2];
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
-console.log(oCore);
+//console.log(oCore);
 
 
 _s.oReq.http.listen(8000, function(){
