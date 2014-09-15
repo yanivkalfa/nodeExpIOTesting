@@ -35,7 +35,7 @@ module.exports = {
      * */
     redis: {
         adapter     : 'redis',
-        host        : '54.86.187.241',
+        host        : '54.165.132.121',
         port        : 6379
     }
 
