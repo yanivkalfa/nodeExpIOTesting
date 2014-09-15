@@ -24,6 +24,8 @@ Tank.find().exec(function(err, res){
 
 var client = _s.oReq.redis.createClient(_s.oConfig.connections.redis.port,_s.oConfig.connections.redis.host);
 
+console.log(_s.oConfig.connections.redis.port, client);
+
 client.set("aKey", "OK");
 
 // This will return a JavaScript String
