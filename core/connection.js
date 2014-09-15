@@ -4,6 +4,9 @@ module.exports = function(_s){
     switch(con.adapter){
         case'mongoose':
             var url = 'mongodb://' + con.user + ':' + con.password + '@' + con.host + ':' + con.port + '/' + con.database;
+
+            console.log(url);
+            console.log(_s.oReq.mongoose);
             /*
             adapter     : 'mongoose',
             host        : 'ec2-54-86-187-241.compute-1.amazonaws.com',
