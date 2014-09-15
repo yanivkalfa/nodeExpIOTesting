@@ -5,7 +5,7 @@ module.exports = function(_s){
         case'mongoose':
             //var url = 'mongodb://' + con.user + ':' + con.password + '@' + con.host + ':' + con.port + '/' + con.database;
 
-            var url = 'mongodb://testDB:abc123@ec2-54-86-187-241.compute-1.amazonaws.com:27017/testDB';
+            var url = 'mongodb://testDB:abc123@54.86.187.241:27017/testDB';
 
             console.log(url);
             console.log(_s.oReq.mongoose);
