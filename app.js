@@ -12,12 +12,13 @@ var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
 var Tank = oCore._connection.model('Tank', schema);
 
 Tank.create({ size: 'small' }).then( function (res) {
-    console.log(res);
+    console.log('res', res);
 },  function (err) {
-    if(err)console.log(err);
+    if(err)console.log('err', err);
 });
 
 Tank.find().exec(function(err, res){
+    console.log('find');
     console.log(err, res);
 });
 
