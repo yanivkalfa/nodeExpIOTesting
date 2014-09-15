@@ -24,6 +24,13 @@ Tank.find().exec(function(err, res){
 
 var client = _s.oReq.redis.createClient(_s.oConfig.connections.redis.port,_s.oConfig.connections.redis.host);
 
+client.set("aKey", "OK");
+
+// This will return a JavaScript String
+client.get("aKey", function (err, reply) {
+    console.log(reply.toString()); // Will print `OK`
+});
+
 /*
 setTimeout(function(){
     console.log(oCore._connection);
