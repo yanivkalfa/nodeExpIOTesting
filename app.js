@@ -24,7 +24,9 @@ Tank.find().exec(function(err, res){
 
 var client = _s.oReq.redis.createClient(_s.oConfig.connections.redis.port,_s.oConfig.connections.redis.host);
 
-console.log(client);
+setTimeout(function(){
+    console.log(client);
+},3000);
 
 client.set("foo_rand000000000000", "OK");
 
