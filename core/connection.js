@@ -8,7 +8,7 @@ module.exports = function(_s){
             //var url = 'mongodb://testDB:abc123@54.86.187.241:27017/testDB';
 
             console.log(url);
-            console.log(_s.oReq.mongoose);
+            //console.log(_s.oReq.mongoose);
             /*
             adapter     : 'mongoose',
             host        : 'ec2-54-86-187-241.compute-1.amazonaws.com',
@@ -23,7 +23,8 @@ module.exports = function(_s){
                     count = 0;
                 }
 
-                connection = _s.oReq.mongoose.createConnection(url, function(err,suc){
+                connection = _s.oReq.mongoose.createConnection(url, function(err, succ){
+                    console.log(err, succ);
                     if(err && count < 5){
                         count++;
                         console.log('reconnecting...');
@@ -35,7 +36,7 @@ module.exports = function(_s){
 
             connect(0);
 
-            console.log(connection);
+            //console.log(connection);
             break;
         case'otherAdapter':
 
