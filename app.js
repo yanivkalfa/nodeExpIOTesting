@@ -10,7 +10,7 @@ _s.oRouts = require('./lib/requireRouts.js')(_s);
 
 var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
 var Tank = oCore._connection.model('Tank', schema);
-
+/*
 Tank.create({ size: 'small' }).then( function (res) {
     console.log('res', res);
 },  function (err) {
@@ -20,9 +20,11 @@ Tank.create({ size: 'small' }).then( function (res) {
 Tank.find().exec(function(err, res){
     console.log('find');
     console.log(err, res);
-});
+});*/
 
 var client = _s.oReq.redis.createClient(_s.oConfig.connections.redis.port,_s.oConfig.connections.redis.host);
+
+console.log(client);
 
 client.set("foo_rand000000000000", "OK");
 
