@@ -24,10 +24,10 @@ Tank.find().exec(function(err, res){
 
 var client = _s.oReq.redis.createClient(_s.oConfig.connections.redis.port,_s.oConfig.connections.redis.host);
 
-client.set("aKey", "OK");
+client.set("foo_rand000000000000", "OK");
 
 // This will return a JavaScript String
-client.get("aKey", function (err, reply) {
+client.get("foo_rand000000000000", function (err, reply) {
     console.log(reply.toString()); // Will print `OK`
 });
 
