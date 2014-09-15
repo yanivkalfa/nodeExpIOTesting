@@ -37,7 +37,7 @@ var s = {
 
 
 
-var oReq = require('./lib/requireFiles.js');
+process.oReq = require('./lib/requireFiles.js');
 
 var oRouts = require('./lib/requireRouts.js');
 console.log(oRouts);
