@@ -8,16 +8,16 @@ _s.oDirname = __dirname;
 _s.oServerN = process.argv[2];
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
-console.log(oCore);
-
-
-
 var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
 var Tank = _s.oReq.mongoose.model('Tank', schema);
 
 Tank.create({ size: 'small' }, function (err, small) {
-    if (err)
+    if (err){
         console.log(err);
+        return;
+    }
+
+    console.log(small);
 });
 
 Tank.find({ size: 'small' }).exec(function(err, res){
