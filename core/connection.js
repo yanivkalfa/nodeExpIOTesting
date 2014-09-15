@@ -3,7 +3,7 @@ module.exports = function(_s){
 
     switch(con.adapter){
         case'mongoose':
-            var url = 'mongodb://' + con.user + ':' + con.password + '@' + con.host + ':' + con.port + '/' + con.database;
+            var url = 'aamongodb://' + con.user + ':' + con.password + '@' + con.host + ':' + con.port + '/' + con.database;
 
             //var url = 'mongodb://testDB:abc123@54.86.187.241:27017/testDB';
 
@@ -24,7 +24,7 @@ module.exports = function(_s){
                 }
 
                 connection = _s.oReq.mongoose.createConnection(url, function(err,suc){
-                    if(err || count < 5){
+                    if(err && count < 5){
                         count++;
                         console.log('reconnecting...');
                         console.log(err);
