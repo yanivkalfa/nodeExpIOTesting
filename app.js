@@ -20,7 +20,9 @@ Tank.create({ size: 'small' }, function (err, small) {
         console.log(err);
 });
 
-//Tank.find({ size: 'small' }).where('createdDate').gt(oneYearAgo).exec(callback);
+Tank.find({ size: 'small' }).exec(function(err, res){
+    console.log(err, res);
+});
 
 
 _s.oReq.http.listen(8000, function(){
