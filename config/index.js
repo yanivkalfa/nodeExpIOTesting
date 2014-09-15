@@ -1,3 +1,4 @@
-module.exports = function(s){
-    console.log('asdas');
+module.exports = {
+    connections : require('./connections.js')
+
 };

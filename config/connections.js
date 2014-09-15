@@ -1,5 +1,5 @@
 
-module.exports.connections = {
+module.exports = {
 
     /*
     * which connection to use as default

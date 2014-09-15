@@ -2,8 +2,8 @@
 
 var _s = {};
 _s.oReq = require('./lib/requireFiles.js')();
-_s.oConfig = require('./config')(_s);
-_s.oCore = require('./core')(_s);
+_s.oConfig = require('./config');
+global.oCore = require('./core')(_s);
 _s.oDirname = __dirname;
 _s.oServerN = process.argv[2];
 _s.oRouts = require('./lib/requireRouts.js')(_s);
