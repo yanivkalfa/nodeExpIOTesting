@@ -88,7 +88,7 @@ client.get("foo_rand000000000000", function (err, reply) {
     console.log(err, reply); // Will print `OK`
 });
 */
-
+console.log(_s.port);
 _s.oReq.http.listen(_s.port || 8000, function(){
     console.log('listening on *:' + _s.port);
 });
