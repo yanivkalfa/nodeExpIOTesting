@@ -52,6 +52,11 @@ primus.on('disconnect', function () {
     console.log('Connection closed');
 });
 
+primus.on('leaveallrooms', function (rooms, spark) {
+    console.log('asfasdf');
+    // works when the client closes the connection
+});
+
 
 /*
 var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
