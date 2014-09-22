@@ -46,6 +46,10 @@ primus.on('connection', function (spark) {
     spark.write('Hello world');
 });
 
+primus.on('end', function () {
+    console.log('Connection closed');
+});
+
 
 
 /*
