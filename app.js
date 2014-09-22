@@ -28,7 +28,7 @@ primus.use('emitter', _s.oReq.primusEmitter);
 primus.use('cluster', _s.oReq.primusCluster);
 
 primus.on('connection', function (spark) {
-    console.log('connected');
+    console.log('connected', spark.id);
 
     spark.on('data', function (data) {
         console.log('received data from the client', data);
@@ -46,15 +46,15 @@ primus.on('connection', function (spark) {
 });
 
 primus.on('end', function () {
-    console.log('Connection closed');
+    console.log('end');
 });
 
 primus.on('disconnection', function () {
-    console.log('Connection closed');
+    console.log('disconnection');
 });
 
 primus.on('leaveallrooms', function (rooms, spark) {
-    console.log('asfasdf');
+    console.log('leaving all rooms');
     // works when the client closes the connection
 });
 
@@ -88,7 +88,7 @@ client.get("foo_rand000000000000", function (err, reply) {
     console.log(err, reply); // Will print `OK`
 });
 */
-console.log(_s.port);
+
 _s.oReq.http.listen(_s.port || 8000, function(){
     console.log('listening on *:' + _s.port);
 });
