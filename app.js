@@ -26,6 +26,26 @@ primus.use('rooms', _s.oReq.primusRooms);
 primus.use('emitter', _s.oReq.primusEmitter);
 primus.use('cluster', _s.oReq.primusCluster);
 
+primus.on('connection', function (spark) {
+    console.log('connection has the following headers', spark.headers);
+    console.log('connection was made from', spark.address);
+    console.log('connection id', spark.id);
+
+    spark.on('data', function (data) {
+        console.log('received data from the client', data);
+
+        //
+        // Always close the connection if we didn't receive our secret imaginary
+        // handshake.
+        //
+        if ('foo' !== data.secrethandshake) spark.end();
+        spark.write({ foo: 'bar' });
+        spark.write('banana');
+    });
+
+    spark.write('Hello world');
+});
+
 
 
 
@@ -45,11 +65,9 @@ Tank.find().exec(function(err, res){
 
 
 // redis
+/*
 var client = _s.oReq.redis.createClient(_s.oConfig.connections.redis.port,_s.oConfig.connections.redis.host);
 
-setTimeout(function(){
-    console.log(client);
-},1000);
 
 client.set("foo_rand000000000000", "OK");
 
@@ -57,6 +75,7 @@ client.set("foo_rand000000000000", "OK");
 client.get("foo_rand000000000000", function (err, reply) {
     console.log(err, reply); // Will print `OK`
 });
+*/
 
 
 _s.oReq.http.listen(8000, function(){
