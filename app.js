@@ -11,13 +11,6 @@ _s.oRouts = require('./lib/requireRouts.js')(_s);
 var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
 var Tank = oCore._connection.model('Tank', schema);
 
-/*
-setTimeout(function(){
-    console.log(Tank);
-    console.log(oCore._connection);
-},1000);
-*/
-
 Tank.create({ size: 'small' }).then( function (res) {
     console.log('res', res);
 },  function (err) {
@@ -29,9 +22,13 @@ Tank.find().exec(function(err, res){
     console.log(err, res);
 });
 
-/*
+
 // redis
 var client = _s.oReq.redis.createClient(_s.oConfig.connections.redis.port,_s.oConfig.connections.redis.host);
+
+setTimeout(function(){
+    console.log(client);
+},1000);
 
 client.set("foo_rand000000000000", "OK");
 
@@ -39,7 +36,7 @@ client.set("foo_rand000000000000", "OK");
 client.get("foo_rand000000000000", function (err, reply) {
     console.log(err, reply); // Will print `OK`
 });
-*/
+
 
 _s.oReq.http.listen(8000, function(){
     console.log('listening on *:8000');
