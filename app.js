@@ -5,7 +5,8 @@ _s.oReq = require('./lib/requireFiles.js')();
 _s.oConfig = require('./config');
 global.oCore = require('./core')(_s);
 _s.oDirname = __dirname;
-_s.oServerN = process.argv[2];
+_s.oServerN = process.argv[3];
+_s.port = process.argv[2];
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
 var primusOptions = {
@@ -88,8 +89,8 @@ client.get("foo_rand000000000000", function (err, reply) {
 });
 */
 
-
-_s.oReq.http.listen(8000, function(){
+console.log(_s.port);
+_s.oReq.http.listen(_s.port || 8000, function(){
     console.log('listening on *:8000');
 });
 
