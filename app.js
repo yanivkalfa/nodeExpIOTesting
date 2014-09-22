@@ -10,6 +10,10 @@ _s.oRouts = require('./lib/requireRouts.js')(_s);
 
 var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
 var Tank = oCore._connection.model('Tank', schema);
+setTimeout(function(){
+    console.log(Tank);
+    console.log(oCore._connection);
+},1000);
 
 Tank.create({ size: 'small' }).then( function (res) {
     console.log('res', res);
