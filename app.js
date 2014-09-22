@@ -48,7 +48,7 @@ primus.on('end', function () {
     console.log('Connection closed');
 });
 
-primus.on('disconnect', function () {
+primus.on('disconnection', function () {
     console.log('Connection closed');
 });
 
