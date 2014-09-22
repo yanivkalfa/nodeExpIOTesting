@@ -29,6 +29,8 @@ Tank.find().exec(function(err, res){
     console.log(err, res);
 });
 
+/*
+// redis
 var client = _s.oReq.redis.createClient(_s.oConfig.connections.redis.port,_s.oConfig.connections.redis.host);
 
 client.set("foo_rand000000000000", "OK");
@@ -37,7 +39,7 @@ client.set("foo_rand000000000000", "OK");
 client.get("foo_rand000000000000", function (err, reply) {
     console.log(err, reply); // Will print `OK`
 });
-
+*/
 
 _s.oReq.http.listen(8000, function(){
     console.log('listening on *:8000');
