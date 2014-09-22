@@ -27,9 +27,7 @@ primus.use('emitter', _s.oReq.primusEmitter);
 primus.use('cluster', _s.oReq.primusCluster);
 
 primus.on('connection', function (spark) {
-    console.log('connection has the following headers', spark.headers);
-    console.log('connection was made from', spark.address);
-    console.log('connection id', spark.id);
+    console.log('connected');
 
     spark.on('data', function (data) {
         console.log('received data from the client', data);
@@ -50,6 +48,9 @@ primus.on('end', function () {
     console.log('Connection closed');
 });
 
+primus.on('disconnect', function () {
+    console.log('Connection closed');
+});
 
 
 /*
