@@ -8,6 +8,26 @@ _s.oDirname = __dirname;
 _s.oServerN = process.argv[2];
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
+var primusOptions = {
+        cluster: {
+            redis: {
+                port: _s.oConfig.connections.redis.port,
+                host: _s.oConfig.connections.redis.host,
+                connect_timeout: 200
+            }
+        },
+        transformer: 'socket.io'
+    },
+    primus = new _s.oReq.Primus(_s.oReq.http, primusOptions);
+
+primus.use('multiplex', _s.oReq.primusMultiplex);
+primus.use('resource', _s.oReq.primusResource);
+primus.use('rooms', _s.oReq.primusRooms);
+primus.use('emitter', _s.oReq.primusEmitter);
+primus.use('cluster', _s.oReq.primusCluster);
+
+
+
 
 var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
 var Tank = oCore._connection.model('Tank', schema);
