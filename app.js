@@ -16,7 +16,7 @@ var primusOptions = {
                 connect_timeout: 200
             }
         },
-        transformer: 'socket.io'
+        transformer: 'engine.io'
     },
     primus = new _s.oReq.Primus(_s.oReq.http, primusOptions);
 
