@@ -48,7 +48,7 @@ primus.on('connection', function (spark) {
 
 
 
-
+/*
 var schema = new _s.oReq.mongoose.Schema({ name: 'string', size: 'string' });
 var Tank = oCore._connection.model('Tank', schema);
 
@@ -62,6 +62,7 @@ Tank.find().exec(function(err, res){
     console.log('find');
     console.log(err, res);
 });
+*/
 
 
 // redis
