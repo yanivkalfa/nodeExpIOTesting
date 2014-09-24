@@ -27,6 +27,18 @@ primus.use('rooms', _s.oReq.primusRooms);
 primus.use('emitter', _s.oReq.primusEmitter);
 primus.use('cluster', _s.oReq.primusCluster);
 
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+
+app.use(session({
+    store: new RedisStore({
+        port : _s.oConfig.connections.redis.port,
+        "host" : _s.oConfig.connections.redis.host
+    }),
+    secret: 'keyboard cat'
+}));
+
+
 primus.on('connection', function (spark) {
     console.log('connected', spark.id);
 

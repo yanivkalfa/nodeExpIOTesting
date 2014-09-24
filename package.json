@@ -5,7 +5,9 @@
     "dependencies": {
         "mongoose" : "~3.8.16",
         "redis" : "~0.12.1",
+        "connect-redis" : "~2.1.0",
         "express": "~4.8.8",
+        "express-session" : "~1.8.2",
         "jade": "~1.6.0",
         "body-parser": "~1.8.1",
         "primus": "~2.4.5",
