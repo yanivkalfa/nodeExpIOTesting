@@ -26,11 +26,8 @@ primus.use('rooms', _s.oReq.primusRooms);
 primus.use('emitter', _s.oReq.primusEmitter);
 primus.use('cluster', _s.oReq.primusCluster);
 
-var session = require('express-session');
-var RedisStore = require('connect-redis')(session);
-
-app.use(session({
-    store: new RedisStore({
+app.use(_s.oReq.session({
+    store: new _s.oReq.RedisStore({
         port : _s.oConfig.connections.redis.port,
         host : _s.oConfig.connections.redis.host
     }),
@@ -38,7 +35,6 @@ app.use(session({
     saveUninitialized: true,
     resave: true
 }));
-
 
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
