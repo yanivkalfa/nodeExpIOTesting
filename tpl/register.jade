@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+    head
+        title Chat with authentication
+    body
+        div.pageWrap some text and
+            h2 Register
+            form(method="post" action="/register")
+                input(type="text" name="userName" placeholder="User Name")
+                input(type="text" name="password" placeholder="Password")
+
+                input(type="text" name="firName" placeholder="First Name")
+                input(type="text" name="lastName" placeholder="Last Name")
+                input(type="text" name="eMail" placeholder="Email Address")
+
+                button(id="submit" name="submit") Submit
