@@ -33,9 +33,11 @@ var RedisStore = require('connect-redis')(session);
 app.use(session({
     store: new RedisStore({
         port : _s.oConfig.connections.redis.port,
-        "host" : _s.oConfig.connections.redis.host
+        host : _s.oConfig.connections.redis.host
     }),
-    secret: 'keyboard cat'
+    secret: 'aha8sdn2nd2938hd239hnd9h81938hds1wj0s19dj109jds032d33',
+    saveUninitialized: true,
+    resave: true
 }));
 
 
