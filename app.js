@@ -7,7 +7,6 @@ global.oCore = require('./core')(_s);
 _s.oDirname = __dirname;
 _s.oServerN = process.argv[3];
 _s.port = process.argv[2];
-_s.oRouts = require('./lib/requireRouts.js')(_s);
 
 var primusOptions = {
         cluster: {
@@ -40,6 +39,8 @@ app.use(session({
     resave: true
 }));
 
+
+_s.oRouts = require('./lib/requireRouts.js')(_s);
 
 primus.on('connection', function (spark) {
     console.log('req', spark.req);
