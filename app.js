@@ -42,6 +42,7 @@ app.use(session({
 
 
 primus.on('connection', function (spark) {
+    console.log('req', spark.req);
     console.log('connected', spark.id);
 
     spark.join("aRoomName", function () {
