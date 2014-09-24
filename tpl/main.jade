@@ -7,4 +7,8 @@ html(lang="en")
         script(src="/js/index.js" type="text/javascript")
     body
         div.pageWrap Site
-            div.logedin Am i Logged In ?
+            div.logedin
+                if user
+                    p user.userName
+                else
+                    p You need to log in !
