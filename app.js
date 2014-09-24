@@ -38,6 +38,8 @@ app.use(_s.oReq.session({
 
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
+
+console.log(User);
 primus.on('connection', function (spark) {
     console.log('req', spark.request.session);
     console.log('connected', spark.id);
