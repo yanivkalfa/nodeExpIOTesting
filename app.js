@@ -43,7 +43,7 @@ app.use(session({
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
 primus.on('connection', function (spark) {
-    console.log('req', spark.request);
+    console.log('req', spark.request.session);
     console.log('connected', spark.id);
 
     spark.join("aRoomName", function () {
