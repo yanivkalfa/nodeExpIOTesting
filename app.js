@@ -50,6 +50,7 @@ primus.on('connection', function (spark) {
         if(decoded.userId){
             //decoded.userId
             _s.uf.login('adasd').then(function(user){
+                console.log(user);
                 if(user === null)
                 {
                     spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
