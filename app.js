@@ -70,6 +70,19 @@ primus.on('connection', function (spark) {
         spark.room("aRoomName").except(spark.id).write(spark.id + ' joined room ' + "aRoomName");
     });
 
+    setTimeout(function(){
+        spark.join("aRoom2", function () {
+
+            // send message to this client
+            spark.write('you joined room ' + "aRoom2");
+
+            // send message to all clients except this one
+            spark.room("aRoom2").except(spark.id).write(spark.id + ' joined room ' + "aRoom2");
+        });
+
+        spark.write('Hello world');
+    },1000);
+
     spark.on('data', function (data) {
         console.log('received data from the client', data);
 
