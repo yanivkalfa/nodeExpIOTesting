@@ -31,6 +31,10 @@ module.exports = {
 
         facebookToken : {
             type : 'string'
+        },
+
+        token : {
+            type : 'string'
         }
     }
 };
