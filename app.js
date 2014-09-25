@@ -49,6 +49,7 @@ primus.on('connection', function (spark) {
     _s.oReq.jwt.verify(spark.query.token, sessSecret, function(err, decoded) {
         if(decoded.userId){
             _s.uf.login({userName : decoded.userName, id : decoded.userId}).then(function(user){
+                console.log(user);
                 if(!user || !user.id)
                 {
                     spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
