@@ -33,7 +33,8 @@ app.use(_s.oReq.session({
     }),
     secret: 'aha8sdn2nd2938hd239hnd9h81938hds1wj0s19dj109jds032d33',
     saveUninitialized: true,
-    resave: true
+    resave: true,
+    cookie: { secure: true }
 }));
 
 _s.oRouts = require('./lib/requireRouts.js')(_s);
