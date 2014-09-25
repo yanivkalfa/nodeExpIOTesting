@@ -8,6 +8,7 @@ _s.oReq = require('./lib/requireFiles.js')();
 _s.oConfig = require('./config');
 global.oCore = require('./core')(_s);
 _s.uf = require('./lib/utilFunc.js')(_s);
+console.log(_s.uf);
 
 
 var sessCon = _s.oConfig.session.connection,
