@@ -44,7 +44,7 @@ app.use(_s.oReq.session({
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
 primus.on('connection', function (spark) {
-    console.log(spark.query);
+    console.log("spark.query", spark.query);
 
     /*
     _s.oReq.jwt.verify(token, sessSecret, function(err, decoded) {
