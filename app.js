@@ -48,8 +48,7 @@ primus.on('connection', function (spark) {
 
     _s.oReq.jwt.verify(spark.query.token, sessSecret, function(err, decoded) {
         if(decoded.userId){
-            //decoded.userId
-            _s.uf.login('adasd').then(function(user){
+            _s.uf.login({"_id" : decoded.userId}).then(function(user){
                 console.log(user);
                 if(user === null)
                 {
