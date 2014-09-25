@@ -1,7 +1,12 @@
 (function($){
     $.fn.app = function()
     {
-        var primus = Primus.connect('ws://mygametests.info/');
+        console.log(user);
+        var token = '';
+        if(user){
+            token = user.token;
+        }
+        var primus = Primus.connect('ws://mygametests.info/?token=' + token);
     };
 
 
