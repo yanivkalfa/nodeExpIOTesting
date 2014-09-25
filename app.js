@@ -8,7 +8,6 @@ _s.oReq = require('./lib/requireFiles.js')();
 _s.oConfig = require('./config');
 global.oCore = require('./core')(_s);
 _s.uf = require('./lib/utilFunc.js')(_s);
-console.log(_s.uf);
 
 
 var sessCon = _s.oConfig.session.connection,
@@ -48,31 +47,19 @@ _s.oRouts = require('./lib/requireRouts.js')(_s);
 primus.on('connection', function (spark) {
 
     _s.oReq.jwt.verify(spark.query.token, sessSecret, function(err, decoded) {
-
-        console.log(decoded);
-
-        /*
         if(decoded.userId){
-            _s.uf.login(req.body.login).then(function(user){
-                if(user)
+            _s.uf.login({userName : decoded.userName, id : decoded.userId}).then(function(user){
+                if(!user || !user.id)
                 {
-                    user.token = _s.oReq.jwt.sign({ userId : user.id, userName : user.userName }, _s.oConfig.session.secret, { algorithm: 'HS512'});
-                    req.session.user = user;
-                    res.redirect('/');
-                }
-                else
-                {
-                    res.redirect('/');
+                    spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
                 }
             }).catch(function(err){
-                if(err) res.redirect('/');
+                if(err) spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
             });
+        }else{
+            spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
         }
-        */
-
-        //spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
     });
-    console.log('connected', spark.id);
 
     spark.join("aRoomName", function () {
 
