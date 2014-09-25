@@ -1,12 +1,13 @@
 
 
 var _s = {};
-_s.oReq = require('./lib/requireFiles.js')();
-_s.oConfig = require('./config');
-global.oCore = require('./core')(_s);
 _s.oDirname = __dirname;
 _s.oServerN = process.argv[3];
 _s.port = process.argv[2];
+_s.oReq = require('./lib/requireFiles.js')();
+_s.oConfig = require('./config');
+global.oCore = require('./core')(_s);
+_s.uf = require('./lib/utilFunc.js')(_s);
 
 
 var sessCon = _s.oConfig.session.connection,
@@ -44,17 +45,32 @@ app.use(_s.oReq.session({
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
 primus.on('connection', function (spark) {
-    console.log("spark.query", spark.query);
 
-    /*
-    _s.oReq.jwt.verify(token, sessSecret, function(err, decoded) {
-        console.log(decoded.foo) // bar
+    _s.oReq.jwt.verify(spark.query.token, sessSecret, function(err, decoded) {
 
-        if(decoded){
-            spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
+        console.log(decoded);
+
+        /*
+        if(decoded.userId){
+            _s.uf.login(req.body.login).then(function(user){
+                if(user)
+                {
+                    user.token = _s.oReq.jwt.sign({ userId : user.id, userName : user.userName }, _s.oConfig.session.secret, { algorithm: 'HS512'});
+                    req.session.user = user;
+                    res.redirect('/');
+                }
+                else
+                {
+                    res.redirect('/');
+                }
+            }).catch(function(err){
+                if(err) res.redirect('/');
+            });
         }
+        */
+
+        //spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
     });
-    */
     console.log('connected', spark.id);
 
     spark.join("aRoomName", function () {
