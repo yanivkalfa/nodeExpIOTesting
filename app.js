@@ -8,11 +8,15 @@ _s.oDirname = __dirname;
 _s.oServerN = process.argv[3];
 _s.port = process.argv[2];
 
-var primusOptions = {
+
+var sessCon = _s.oConfig.session.connection,
+    sessSecret = _s.oConfig.session.secret,
+    sessMaxAge = _s.oConfig.session.maxAge,
+    primusOptions = {
         cluster: {
             redis: {
-                port: _s.oConfig.connections.redis.port,
-                host: _s.oConfig.connections.redis.host,
+                port: _s.oConfig.connections[sessCon].port,
+                host: _s.oConfig.connections[sessCon].host,
                 connect_timeout: 200
             }
         },
@@ -28,18 +32,29 @@ primus.use('cluster', _s.oReq.primusCluster);
 
 app.use(_s.oReq.session({
     store: new _s.oReq.RedisStore({
-        port : _s.oConfig.connections.redis.port,
-        host : _s.oConfig.connections.redis.host
+        port : _s.oConfig.connections[sessCon].port,
+        host : _s.oConfig.connections[sessCon].host
     }),
-    secret: 'aha8sdn2nd2938hd239hnd9h81938hds1wj0s19dj109jds032d33',
+    secret: sessSecret,
     saveUninitialized: true,
     resave: true,
-    cookie: { secure: true }
+    cookie: { maxAge: sessMaxAge }
 }));
 
 _s.oRouts = require('./lib/requireRouts.js')(_s);
 
 primus.on('connection', function (spark) {
+    console.log(spark.query);
+
+    /*
+    _s.oReq.jwt.verify(token, sessSecret, function(err, decoded) {
+        console.log(decoded.foo) // bar
+
+        if(decoded){
+            spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
+        }
+    });
+    */
     console.log('connected', spark.id);
 
     spark.join("aRoomName", function () {
