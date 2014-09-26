@@ -82,6 +82,13 @@ primus.on('connection', function (spark) {
 
         spark.write('Hello world');
 
+        primus.rooms(function(err, rooms){
+            console.log("primus room", rooms);
+        });
+
+        spark.rooms(function(err, rooms){
+            console.log("spark room", rooms);
+        });
     },1000);
 
 
@@ -95,14 +102,6 @@ primus.on('connection', function (spark) {
         if ('foo' !== data.secrethandshake) spark.end();
         spark.write({ foo: 'bar' });
         spark.write('banana');
-    });
-
-    primus.rooms(function(err, rooms){
-        console.log("primus room", rooms);
-    });
-
-    spark.rooms(function(err, rooms){
-        console.log("spark room", rooms);
     });
 
     spark.write('Hello world');
