@@ -14,13 +14,13 @@ var sessCon = _s.oConfig.session.connection,
     sessSecret = _s.oConfig.session.secret,
     sessMaxAge = _s.oConfig.session.maxAge,
     primusOptions = {
-        /*cluster: {
+        cluster: {
             redis: {
                 port: _s.oConfig.connections[sessCon].port,
                 host: _s.oConfig.connections[sessCon].host,
                 connect_timeout: 200
             }
-        },*/
+        },
         transformer: 'engine.io'
     },
     primus = new _s.oReq.Primus(_s.oReq.http, primusOptions);
@@ -29,7 +29,7 @@ primus.use('multiplex', _s.oReq.primusMultiplex);
 primus.use('resource', _s.oReq.primusResource);
 primus.use('rooms', _s.oReq.primusRooms);
 primus.use('emitter', _s.oReq.primusEmitter);
-//primus.use('cluster', _s.oReq.primusCluster);
+primus.use('cluster', _s.oReq.primusCluster);
 
 app.use(_s.oReq.session({
     store: new _s.oReq.RedisStore({
@@ -81,8 +81,7 @@ primus.on('connection', function (spark) {
         });
 
         spark.write('Hello world');
-        console.log(primus.rooms());
-        console.log(spark.rooms());
+
     },1000);
 
 
@@ -96,6 +95,14 @@ primus.on('connection', function (spark) {
         if ('foo' !== data.secrethandshake) spark.end();
         spark.write({ foo: 'bar' });
         spark.write('banana');
+    });
+
+    primus.rooms(function(err, rooms){
+        console.log(rooms);
+    });
+
+    spark.rooms(function(err, rooms){
+        console.log(rooms);
     });
 
     spark.write('Hello world');
@@ -155,3 +162,6 @@ _s.oReq.http.listen(_s.port || 8000, function(){
 //oGlobal : require('./lib/serverGlobal.js'),
 //oConfig : require('./lib/serverConfig.js'),
 //utilFunc : require('./lib/utilFunc.js'),
+
+
+
