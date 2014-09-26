@@ -81,9 +81,8 @@ primus.on('connection', function (spark) {
         });
 
         spark.write('Hello world');
+        console.log(primus.rooms());
     },1000);
-
-    console.log(primus.rooms());
 
 
     spark.on('data', function (data) {
