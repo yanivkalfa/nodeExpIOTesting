@@ -29,7 +29,7 @@ primus.use('multiplex', _s.oReq.primusMultiplex);
 primus.use('resource', _s.oReq.primusResource);
 primus.use('rooms', _s.oReq.primusRooms);
 primus.use('emitter', _s.oReq.primusEmitter);
-primus.use('cluster', _s.oReq.primusCluster);
+//primus.use('cluster', _s.oReq.primusCluster);
 
 app.use(_s.oReq.session({
     store: new _s.oReq.RedisStore({
