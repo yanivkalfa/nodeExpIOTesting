@@ -25,10 +25,10 @@ var sessCon = _s.oConfig.session.connection,
     },
     primus = new _s.oReq.Primus(_s.oReq.http, primusOptions);
 
-primus.use('multiplex', _s.oReq.primusMultiplex);
-primus.use('resource', _s.oReq.primusResource);
+//primus.use('multiplex', _s.oReq.primusMultiplex);
+//primus.use('resource', _s.oReq.primusResource);
 primus.use('rooms', _s.oReq.primusRooms);
-primus.use('emitter', _s.oReq.primusEmitter);
+//primus.use('emitter', _s.oReq.primusEmitter);
 primus.use('cluster', _s.oReq.primusCluster);
 
 app.use(_s.oReq.session({
