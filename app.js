@@ -14,13 +14,13 @@ var sessCon = _s.oConfig.session.connection,
     sessSecret = _s.oConfig.session.secret,
     sessMaxAge = _s.oConfig.session.maxAge,
     primusOptions = {
-        cluster: {
+        /*cluster: {
             redis: {
                 port: _s.oConfig.connections[sessCon].port,
                 host: _s.oConfig.connections[sessCon].host,
                 connect_timeout: 200
             }
-        },
+        },*/
         transformer: 'engine.io'
     },
     primus = new _s.oReq.Primus(_s.oReq.http, primusOptions);
