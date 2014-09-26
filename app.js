@@ -25,10 +25,10 @@ var sessCon = _s.oConfig.session.connection,
     },
     primus = new _s.oReq.Primus(_s.oReq.http, primusOptions);
 
-//primus.use('multiplex', _s.oReq.primusMultiplex);
-//primus.use('resource', _s.oReq.primusResource);
+primus.use('multiplex', _s.oReq.primusMultiplex);
+primus.use('resource', _s.oReq.primusResource);
 primus.use('rooms', _s.oReq.primusRooms);
-//primus.use('emitter', _s.oReq.primusEmitter);
+primus.use('emitter', _s.oReq.primusEmitter);
 primus.use('cluster', _s.oReq.primusCluster);
 
 app.use(_s.oReq.session({
@@ -60,11 +60,6 @@ primus.on('connection', function (spark) {
             spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
         }
     });
-    primus.join(spark, 'news', function(){
-        primus.rooms(function(err, rooms){
-            console.log("primus room", rooms);
-        });
-    });
 
     spark.join("aRoomName", function () {
 
@@ -74,7 +69,7 @@ primus.on('connection', function (spark) {
         // send message to all clients except this one
         spark.room("aRoomName").except(spark.id).write(spark.id + ' joined room ' + "aRoomName");
 
-        primus.rooms(function(err, rooms){
+        primus.rooms(spark.id,function(err, rooms){
             console.log("primus room", rooms);
         });
 
