@@ -107,6 +107,12 @@ primus.on('connection', function (spark) {
     spark.write('Hello world');
 });
 
+setTimeout(function(){
+    primus.rooms(function(err, rooms){
+        console.log("primus room", rooms);
+    });
+},2000);
+
 primus.on('end', function () {
     console.log('end');
 });
