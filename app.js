@@ -82,6 +82,7 @@ primus.on('connection', function (spark) {
 
         spark.write('Hello world');
         console.log(primus.rooms());
+        console.log(spark.rooms());
     },1000);
 
 
