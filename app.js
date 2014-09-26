@@ -98,11 +98,11 @@ primus.on('connection', function (spark) {
     });
 
     primus.rooms(function(err, rooms){
-        console.log(rooms);
+        console.log("primus room", rooms);
     });
 
     spark.rooms(function(err, rooms){
-        console.log(rooms);
+        console.log("spark room", rooms);
     });
 
     spark.write('Hello world');
