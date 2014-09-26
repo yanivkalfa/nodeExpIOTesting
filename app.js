@@ -68,19 +68,6 @@ primus.on('connection', function (spark) {
 
         // send message to all clients except this one
         spark.room("aRoomName").except(spark.id).write(spark.id + ' joined room ' + "aRoomName");
-    });
-
-    setTimeout(function(){
-        spark.join("aRoom2", function () {
-
-            // send message to this client
-            spark.write('you joined room ' + "aRoom2");
-
-            // send message to all clients except this one
-            spark.room("aRoom2").except(spark.id).write(spark.id + ' joined room ' + "aRoom2");
-        });
-
-        spark.write('Hello world');
 
         primus.rooms(function(err, rooms){
             console.log("primus room", rooms);
@@ -95,7 +82,7 @@ primus.on('connection', function (spark) {
                 console.log("primus room", rooms);
             });
         },2000);
-    },1000);
+    });
 
 
     spark.on('data', function (data) {
