@@ -60,6 +60,11 @@ primus.on('connection', function (spark) {
             spark.end({"method" : "disconnect", msg : "Could not authenticate user."} );
         }
     });
+    primus.join(spark, 'news', function(){
+        primus.rooms(function(err, rooms){
+            console.log("primus room", rooms);
+        });
+    });
 
     spark.join("aRoomName", function () {
 
