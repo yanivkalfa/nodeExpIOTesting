@@ -85,6 +85,7 @@ primus.on('connection', function (spark) {
 
     console.log(primus.rooms());
 
+
     spark.on('data', function (data) {
         console.log('received data from the client', data);
 
