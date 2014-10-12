@@ -10,9 +10,9 @@ html(lang="en")
                 var user = !{JSON.stringify(user)};
 
     body
-        div.pageWrap Site
+        div.pageWrap
             div.logedin
                 if user && user.userName
-                    p= user.userName
+                    p= Site user.userName
                 else
                     p You need to log in !
