@@ -8,6 +8,7 @@ _s.oReq = require('./lib/requireFiles.js')();
 _s.oConfig = require('./config');
 global.oCore = require('./core')(_s);
 _s.uf = require('./lib/utilFunc.js')(_s);
+var _ = _s.oReq.lodash;
 
 
 var sessCon = _s.oConfig.session.connection,
@@ -47,7 +48,7 @@ _s.oRouts = require('./lib/requireRouts.js')(_s);
 primus.on('connection', function (spark) {
 
     _s.oReq.jwt.verify(spark.query.token, sessSecret, function(err, decoded) {
-        if(decoded && decoded.userId){
+        if(!_.isUndefined(decoded) && !_.isUndefined(decoded.userId)){
             _s.uf.login({"_id" : decoded.userId}).then(function(user){
                 if(user === null)
                 {
