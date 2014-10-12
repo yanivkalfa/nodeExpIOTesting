@@ -47,7 +47,7 @@ _s.oRouts = require('./lib/requireRouts.js')(_s);
 primus.on('connection', function (spark) {
 
     _s.oReq.jwt.verify(spark.query.token, sessSecret, function(err, decoded) {
-        if(decoded.userId){
+        if(decoded && decoded.userId){
             _s.uf.login({"_id" : decoded.userId}).then(function(user){
                 if(user === null)
                 {
