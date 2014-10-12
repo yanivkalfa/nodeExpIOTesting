@@ -99,6 +99,10 @@ primus.on('connection', function (spark) {
     spark.write('Hello world');
 });
 
+User.find().exec(function (err, user) {
+  console.log(err, user);
+});
+
 primus.on('end', function () {
     console.log('end');
 });
