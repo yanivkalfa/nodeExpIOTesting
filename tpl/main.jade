@@ -12,7 +12,7 @@ html(lang="en")
     body
         div.pageWrap Site
             div.logedin
-                if user
+                if user && user.userName
                     p= user.userName
                 else
                     p You need to log in !
