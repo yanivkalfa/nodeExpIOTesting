@@ -1,7 +1,6 @@
 (function($){
     $.fn.app = function()
     {
-        console.log(user);
         var token = '';
         if(user){
             token = user.token;
